@@ -28,5 +28,15 @@ RSpec.describe League do
       expect(premier.teams.count).to eq(2)
     end
 
+    it 'can access team captains' do
+      expect(premier.captains[0]).to be_instance_of(Player)
+      expect(premier.captains.count).to eq(2)
+    end
+
+    it 'can sort players by team' do
+      expect(premier.players_by_team).to be_instance_of(Hash)
+      expect(premier.players_by_team[richmond]).to eq(["Roy Kent", "Sam Obisanya"])
+    end
+
   end
 end
