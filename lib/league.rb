@@ -43,6 +43,28 @@ class League
   end
 
   def players_by_salary_range
+    hash = {}
+    @teams.each do |team|
+      hash["Over 0M"] = players_by_salary(0)
+      hash["Over 1M"] = players_by_salary(1000000)
+      hash["Over 2M"] = players_by_salary(2000000)
+      hash["Over 3M"] = players_by_salary(3000000)
+      hash["Over 4M"] = players_by_salary(4000000)
+      hash["Over 5M"] = players_by_salary(5000000)
+    end
+    hash
   end
 
+  def players_by_salary(salary)
+     playas = @teams.map do |team|
+      team.players.select do |player|
+        player.salary >= salary &&
+        player.salary < (salary + 1000000)
+      end
+    end
+    da_playas = playas.flatten
+    da_playas.map do |playa|
+     playa.name
+    end
+  end
 end

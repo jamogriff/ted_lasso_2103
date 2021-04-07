@@ -67,5 +67,9 @@ RSpec.describe League do
       expect(premier.players_by_salary_range).to eq(result)
     end
 
+    # Helper method works
+    it 'helps sort players' do
+      expect(premier.players_by_salary(1000000)).to eq(["Roy Kent", "Jamie Tartt"])
+    end
   end
 end
