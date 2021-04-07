@@ -25,5 +25,9 @@ RSpec.describe 'Team' do
     it 'can find the captain' do
       expect(team.captain).to eq("Roy Kent")
     end
+
+    it 'returns positions filled' do
+      expect(team.positions_filled).to eq(["Center Midfielder", "Right-back Defender"])
+    end
   end
 end
