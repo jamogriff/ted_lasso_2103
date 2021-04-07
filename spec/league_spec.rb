@@ -17,5 +17,16 @@ RSpec.describe League do
       expect(premier).to be_instance_of(League)
     end
 
+    it 'can access instance vars' do
+      expect(premier.name).to eq("Premier League")
+      expect(premier.teams).to be_instance_of(Array)
+    end
+
+    it 'can add teams' do
+      premier.add_team(richmond)
+      premier.add_team(manchester)
+      expect(premier.teams.count).to eq(2)
+    end
+
   end
 end
