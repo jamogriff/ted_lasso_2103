@@ -12,5 +12,18 @@ RSpec.describe 'Team' do
       expect(team).to be_instance_of(Team)
     end
 
+    it 'can access instance vars passed as arguments' do
+      expect(team.name).to eq("AFC Richmond")
+      expect(team.coach).to eq("Ted Lasso")
+      expect(team.players).to eq([roy, sam])
+    end
+
+    it 'can calculate #total_salary' do
+      expect(team.total_salary).to eq(1600000)
+    end
+
+    it 'can find the captain' do
+      expect(team.captain).to eq("Roy Kent")
+    end
   end
 end
